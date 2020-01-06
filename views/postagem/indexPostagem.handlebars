@@ -1,0 +1,30 @@
+
+
+<div class="card-header">
+    <div class="card-body">
+        <h1>{{post.titulo}} </h1>
+        <h4 class="mt-2 ml-2">Autor: {{post.autor.nome}} {{#if post.autor.isAdm}} <small class="font-weight-lighter font-italic alert-danger "> ADM </small> {{/if}}</h4>
+
+        <hr>
+        <p> {{post.conteudo}} </p>
+        <hr>
+        <p>{{post.categoria.nome}} </p>
+        <small>Data de publicação: {{post.data}}</small>
+        {{# if user.isAdm}}
+            <form action="/admin/postagem/deletar" method="POST">
+                <input type="hidden" name="id" value="{{post._id}}">
+                <button type="submit" class="btn btn-outline-danger mt-2">Deletar Postagem</button>
+            </form>
+        {{/if}}
+    </div>
+</div>
+
+<h5>Comentarios: </h5>
+<div class="card-header">
+    <div class="card-body">
+        <form action="/postagem/:{{_id}}/addComentario" method="POST">
+            <input type="text" name="comentario">
+        </form>
+    </div>
+</div>
+

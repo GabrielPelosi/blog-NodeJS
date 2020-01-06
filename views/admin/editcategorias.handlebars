@@ -1,0 +1,25 @@
+<div class="popover-header mt-2">
+    <h3>Categoria atual</h3>
+    <div class="card mt-2">
+        <div class="card-body mt-2">
+            <h4>{{cat.nome}}</h4>
+            <h5>Slug: {{cat.slug}}</h5>
+            <small>Data de criação: {{cat.date}}</small><br>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form action="/admin/categorias/edit" method="POST" >
+            <input type="hidden" name="id" value="{{cat._id}}">
+            <label for="nome">Nome: </label>
+            <input type="text" id="nome" name="nome" placeholder="nome da categoria">
+            <br>
+            <label for="slug">Slug: </label>
+            <input type="text" id="slug" name="slug" placeholder="Sluga da categoria">
+            <br>
+            <button type="submit" class="btn btn-success">Editar Categoria</button>
+        </form>
+    </div>
+</div>

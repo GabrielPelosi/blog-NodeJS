@@ -1,0 +1,42 @@
+{{# if user}}
+    <div class="jumbotron">
+        <h1 class="display-4">Nice!</h1>
+        <p class="lead">Agora que você já possui uma conta, sinta-se livre para fazer as mais diversas postagems que você quiser!</p>
+        <hr class="my-4">
+        <p>Para fazer postagens clique no botão a baxio!</p>
+        <p class="lead">
+            <a class="btn btn-dark btn-lg" href="/usuario/postagem" role="button">Fazer postagens</a>
+        </p>
+    </div>
+
+
+{{else}}
+    <div class="jumbotron">
+        <h1 class="display-4">Bem-vindo!</h1>
+        <p class="lead">Faça postagens para o mundo inteiro te ouvir!</p>
+        <hr class="my-4">
+        <p>Mas antes, junte-se a comunbidade criando uma conta :D</p>
+        <p class="lead">
+            <a class="btn btn-dark btn-lg" href="/usuario/registro" role="button">Cadastre-se</a>
+        </p>
+    </div>
+
+{{/if}}
+
+
+
+<h4>Postagens recentes:</h4>
+
+{{#each postagens}}
+    <div class="mt-4 card">
+        <div class="card-body">
+            <small>{{categoria.nome}}</small>
+            <hr>
+            <h3>{{titulo}}</h3>
+            <p> {{descricao}} </p>
+            <a href="/postagem/{{_id}}"> <button class="btn btn-info">Leia Mais!</button> </a>
+            <hr>
+            <small>Data de publicação: {{data}}</small>
+        </div>
+    </div>
+{{/each}}

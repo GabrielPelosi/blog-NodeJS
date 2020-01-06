@@ -1,0 +1,28 @@
+
+<h2>Postagens</h2>
+<a href="/admin/postagem/add"><button class="btn btn-success" > Adicionar Postagem </button></a>
+<hr>
+
+
+{{#each postagens}}
+    <div class="card mt-2">
+        <h4 class="mt-2 ml-2">Autor: {{autor.nome}} {{#if autor.isAdm}} <small class="font-weight-lighter font-italic alert-danger "> ADM </small> {{/if}}</h4>
+
+
+
+        <div class="card-body">
+            <h4>{{titulo}}</h4>
+            <p>{{conteudo}}</p>
+            <small>{{data}}</small>
+            <small>Categoria: {{categoria}}</small>
+            <br>
+            <a href="/postagem/{{_id}}"> <button class="btn btn-info">Analisar Postagem</button> </a>
+            <form action="/admin/postagem/deletar" method="POST">
+                <input type="hidden" name="id" value="{{_id}}">
+                <button type="submit" class="btn btn-outline-danger mt-2">Deletar Postagem</button>
+            </form>
+        </div>
+    </div>
+{{else}}
+    <h4>Não temos postagens por enquanto :(</h4>
+{{/each}}
